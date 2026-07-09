@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>小红书AI虚拟产品21天闯关实战</title>
+    <meta
+      name="description"
+      content="把小红书AI虚拟产品21天教程改造成手机和电脑友好的闯关式实战网页。"
+    />
+    <link rel="stylesheet" href="assets/quest.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar" id="top">
+        <a class="brand" href="#top" aria-label="返回顶部">
+          <span class="brand-mark">21</span>
+          <span>
+            <strong>小红书AI虚拟产品闯关实战</strong>
+            <small>从选品到上架、发布、复盘的21天任务线</small>
+          </span>
+        </a>
+        <nav class="top-actions" aria-label="页面导航">
+          <a href="#map">关卡</a>
+          <a href="#current">今日任务</a>
+          <a href="#archive">资料</a>
+          <button class="ghost-button" id="resetProgress" type="button">重置进度</button>
+        </nav>
+      </header>
+
+      <main class="page-grid">
+        <aside class="mission-map" id="map" aria-label="21天关卡地图">
+          <div class="map-heading">
+            <span class="eyebrow">Quest Map</span>
+            <h2>21天关卡地图</h2>
+            <p>默认按顺序解锁。每关必须完成交付物，下一关才会变亮。</p>
+          </div>
+          <div class="stage-tabs" id="stageTabs" role="tablist" aria-label="阶段筛选"></div>
+          <div class="level-list" id="levelList"></div>
+        </aside>
+
+        <section class="main-column">
+          <section class="hero-panel" aria-labelledby="heroTitle">
+            <div class="hero-copy">
+              <span class="eyebrow">Playable Course</span>
+              <h1 id="heroTitle">别把教程读完，把产品跑出来。</h1>
+              <p>
+                这个网页把原来的Markdown长文拆成21个可通关任务。你每天只看当前关卡，
+                完成指定交付物，再进入下一关。
+              </p>
+              <div class="hero-actions">
+                <button class="primary-button" id="continueButton" type="button">继续当前关</button>
+                <a class="secondary-button" href="#rules">查看通关规则</a>
+              </div>
+            </div>
+            <div class="scoreboard" aria-label="学习进度">
+              <div class="progress-ring" id="progressRing">
+                <span id="progressNumber">0</span>
+                <small>/21</small>
+              </div>
+              <dl>
+                <div>
+                  <dt>当前阶段</dt>
+                  <dd id="currentStage">入场</dd>
+                </div>
+                <div>
+                  <dt>下一交付</dt>
+                  <dd id="nextDeliverable">10个候选方向</dd>
+                </div>
+                <div>
+                  <dt>通关原则</dt>
+                  <dd>交付物优先，阅读其次</dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+
+          <section class="rules-strip" id="rules" aria-label="通关规则">
+            <article>
+              <strong>每日只做一关</strong>
+              <span>避免收藏式学习，每天只处理一个交付物。</span>
+            </article>
+            <article>
+              <strong>先做最小版本</strong>
+              <span>产品1.0能卖、能交付即可，不追求一步到位。</span>
+            </article>
+            <article>
+              <strong>用数据决定下一步</strong>
+              <span>重点看商品点击、支付转化、加购、下单。</span>
+            </article>
+          </section>
+
+          <section class="level-panel" id="current" aria-live="polite">
+            <div class="level-kicker">
+              <span id="levelStage">入场</span>
+              <span id="levelDifficulty">基础关</span>
+            </div>
+            <div class="level-title-row">
+              <div>
+                <p class="level-number" id="levelNumber">Day 1</p>
+                <h2 id="levelTitle">理解虚拟产品闭环</h2>
+              </div>
+              <span class="boss-badge" id="bossBadge" hidden>Boss关</span>
+            </div>
+
+            <div class="task-grid">
+              <article>
+                <span class="task-label">学什么</span>
+                <p id="levelLearn"></p>
+              </article>
+              <article>
+                <span class="task-label">做什么</span>
+                <p id="levelDo"></p>
+              </article>
+              <article>
+                <span class="task-label">今日交付</span>
+                <p id="levelDeliverable"></p>
+              </article>
+              <article>
+                <span class="task-label">通关标准</span>
+                <p id="levelPass"></p>
+              </article>
+            </div>
+
+            <div class="check-panel">
+              <div class="panel-heading">
+                <h3>通关清单</h3>
+                <p>全部勾选后，才能标记本关完成。</p>
+              </div>
+              <div class="checklist" id="checklist"></div>
+            </div>
+
+            <div class="mentor-note">
+              <strong>导师提示</strong>
+              <p id="mentorTip"></p>
+            </div>
+
+            <div class="level-actions">
+              <button class="primary-button" id="completeButton" type="button">标记本关完成</button>
+              <button class="secondary-button" id="copyTemplate" type="button">复制今日交付模板</button>
+              <button class="ghost-button" id="nextButton" type="button">下一关</button>
+            </div>
+          </section>
+
+          <section class="archive-panel" id="archive">
+            <div class="panel-heading">
+              <span class="eyebrow">Reference</span>
+              <h2>原教程核心资料</h2>
+              <p>长资料继续保留，但不再打断每日任务。卡住时再回看对应章节。</p>
+            </div>
+            <div class="archive-grid">
+              <article>
+                原始Markdown教程
+                <span>本地路径：教程/小红书AI虚拟产品21天实战教程.md</span>
+              </article>
+              <article>
+                小红书虚拟产品实操手册
+                <span>本地路径：教程/飞书文档整理/提取文本/04-【目前更新5W+】小红书虚拟产品从0到1实操手册.md</span>
+              </article>
+              <article>
+                投流专场
+                <span>本地路径：教程/2026年4月松月小红书AI虚拟项目/可读文字稿/09小红书投流专场.md</span>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <aside class="right-rail" aria-label="执行看板">
+          <section class="rail-block">
+            <span class="eyebrow">Milestones</span>
+            <h2>阶段里程碑</h2>
+            <div id="milestones"></div>
+          </section>
+          <section class="rail-block">
+            <span class="eyebrow">Decision</span>
+            <h2>21天后怎么判断</h2>
+            <ul class="decision-list">
+              <li><strong>继续做：</strong>有自然下单、加购或真实咨询。</li>
+              <li><strong>优化再做：</strong>有阅读但点击低，或有点击但转化低。</li>
+              <li><strong>考虑换品：</strong>30篇仍没有有效商品访问，且同行也没销量。</li>
+            </ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <nav class="mobile-nav" aria-label="手机底部导航">
+      <a href="#map">关卡</a>
+      <a href="#current">任务</a>
+      <a href="#archive">资料</a>
+      <a href="#top">顶部</a>
+    </nav>
+
+    <script src="assets/quest.js" defer></script>
+  </body>
+</html>
