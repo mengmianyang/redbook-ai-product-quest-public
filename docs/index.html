@@ -23,7 +23,7 @@
         <nav class="top-actions" aria-label="页面导航">
           <a href="#map">关卡</a>
           <a href="#current">今日任务</a>
-          <a href="#archive">资料</a>
+          <a href="materials.html">原始资料</a>
           <button class="ghost-button" id="resetProgress" type="button">重置进度</button>
         </nav>
       </header>
@@ -122,6 +122,37 @@
               </article>
             </div>
 
+            <div class="lesson-stack">
+              <article class="lesson-card lesson-card-wide">
+                <div class="panel-heading">
+                  <span class="eyebrow">Daily Lesson</span>
+                  <h3>今日教程</h3>
+                </div>
+                <div class="lesson-body" id="lessonBody"></div>
+              </article>
+              <article class="lesson-card">
+                <div class="panel-heading">
+                  <span class="eyebrow">Action</span>
+                  <h3>操作步骤</h3>
+                </div>
+                <ol class="step-list" id="lessonSteps"></ol>
+              </article>
+              <article class="lesson-card template-card">
+                <div class="panel-heading">
+                  <span class="eyebrow">Template</span>
+                  <h3>今日交付模板</h3>
+                </div>
+                <pre id="lessonTemplate"></pre>
+              </article>
+              <article class="lesson-card source-card">
+                <div class="panel-heading">
+                  <span class="eyebrow">Sources</span>
+                  <h3>对应原始资料</h3>
+                </div>
+                <div class="source-links" id="levelSources"></div>
+              </article>
+            </div>
+
             <div class="check-panel">
               <div class="panel-heading">
                 <h3>通关清单</h3>
@@ -145,23 +176,10 @@
           <section class="archive-panel" id="archive">
             <div class="panel-heading">
               <span class="eyebrow">Reference</span>
-              <h2>原教程核心资料</h2>
-              <p>长资料继续保留，但不再打断每日任务。卡住时再回看对应章节。</p>
+              <h2>原始资料已移到子页面</h2>
+              <p>原来的本地路径在网页上无法直接打开，现在改成可访问的站内资料页。</p>
             </div>
-            <div class="archive-grid">
-              <article>
-                原始Markdown教程
-                <span>本地路径：教程/小红书AI虚拟产品21天实战教程.md</span>
-              </article>
-              <article>
-                小红书虚拟产品实操手册
-                <span>本地路径：教程/飞书文档整理/提取文本/04-【目前更新5W+】小红书虚拟产品从0到1实操手册.md</span>
-              </article>
-              <article>
-                投流专场
-                <span>本地路径：教程/2026年4月松月小红书AI虚拟项目/可读文字稿/09小红书投流专场.md</span>
-              </article>
-            </div>
+            <a class="material-cta" href="materials.html">打开原始资料子页面</a>
           </section>
         </section>
 
@@ -187,7 +205,7 @@
     <nav class="mobile-nav" aria-label="手机底部导航">
       <a href="#map">关卡</a>
       <a href="#current">任务</a>
-      <a href="#archive">资料</a>
+      <a href="materials.html">资料</a>
       <a href="#top">顶部</a>
     </nav>
 
